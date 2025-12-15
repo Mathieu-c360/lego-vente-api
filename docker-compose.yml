@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16          # Version stable (18.1 n'existe pas encore en stable)
+    container_name: lego-vente-api-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: legoventeapi
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root   # On met "root" en dur (pas de ${})
+      TZ: Europe/Brussels
+    volumes:
+      - pgdata_clean:/var/lib/postgresql/data # Chemin standard
+    ports:
+      - "5433:5432"
+    
+volumes:
+  pgdata_clean:                 # Nouveau nom pour forcer une base neuve
