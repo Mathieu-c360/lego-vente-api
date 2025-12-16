@@ -34,7 +34,6 @@ public class ArticleService {
   
     public Article getArticle(int id) {
         return articleRepository.findById(id)
-            // 👇 Attention à l'orthographe : Ressource (avec 2 s)
             .orElseThrow(() -> new RessourceIntrouvableException("Aucun article avec l'ID : " + id));
     }
 }
