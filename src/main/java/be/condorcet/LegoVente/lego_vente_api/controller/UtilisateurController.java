@@ -33,7 +33,7 @@ public class UtilisateurController {
     public ResponseEntity<?> login(@RequestBody Map<String, String> loginData) {
         try {
             String email = loginData.get("email");
-            String password = loginData.get("motDePasse"); // ou "password" selon ton JSON
+            String password = loginData.get("motDePasse"); 
 
             if (email == null || password == null) {
                 return new ResponseEntity<>("Email et mot de passe requis", HttpStatus.BAD_REQUEST);
